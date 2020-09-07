@@ -1,25 +1,23 @@
 # setup
-setup: selflabel
+setup: scan
 
-# ema
-use_ema: False
-
-# Threshold
-confidence_threshold: 0.99
-
-# Criterion
-criterion: confidence-cross-entropy
+# Loss
+criterion: scan
 criterion_kwargs:
-   apply_class_balancing: True
+   entropy_weight: 5.0
+
+# Weight update
+update_cluster_head_only: False # Update full network in SCAN
+num_heads: 1 # Only use one head
 
 # Model
 backbone: resnet18
-num_heads: 1
 
 # Dataset
 train_db_name: cifar-10
 val_db_name: cifar-10
-num_classes: 10
+num_classes: 25
+num_neighbors: 20
 
 # Transformations
 augmentation_strategy: ours 
@@ -41,12 +39,12 @@ transformation_kwargs:
       std: [0.2023, 0.1994, 0.2010]
 
 # Hyperparameters
-epochs: 200
 optimizer: adam
 optimizer_kwargs:
    lr: 0.0001
    weight_decay: 0.0001
-batch_size: 1000
+epochs: 50
+batch_size: 128
 num_workers: 8
 
 # Scheduler
