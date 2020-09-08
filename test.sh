@@ -21,7 +21,7 @@
 #SBATCH -A DMS20012
 #
 
-cd /work/06527/zhendong/frontera/dopamine
+cd /home1/06399/armand/Unsupervised-Classification
 
 module load launcher_gpu
 module load cuda/10.0
@@ -30,9 +30,9 @@ module load cudnn/7.6.2
 source activate drl
 
 
-export LAUNCHER_JOB_FILE=/work/06527/zhendong/frontera/dopamine/run_cmd/test.txt
+export LAUNCHER_JOB_FILE=/home1/06399/armand/Unsupervised-Classification/run_cmd/test.txt
 export LAUNCHER_SCHED=interleaved
-export LAUNCHER_WORKDIR=/work/06527/zhendong/frontera/dopamine/
+export LAUNCHER_WORKDIR=/home1/06399/armand/Unsupervised-Classification/
 
 $LAUNCHER_DIR/paramrun
 
