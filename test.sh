@@ -12,13 +12,13 @@
 #-------------------------------------------------------
 #
 #         <------ Setup Parameters ------>
-#SBATCH -J Test         # Job name
-#SBATCH -o outputs/Test.%j.out           # Name of stdout output file (%j expands to jobId)
-#SBATCH -p rtx                    # Queue name
-#SBATCH -N 3                      # Number of Nodes
-#SBATCH -n 6                      # Number of tasks
-#SBATCH -t 48:00:00
-#SBATCH -A DMS20012
+SBATCH -J Test         # Job name
+SBATCH -o outputs/Test.%j.out           # Name of stdout output file (%j expands to jobId)
+SBATCH -p rtx                    # Queue name
+SBATCH -N 3                      # Number of Nodes
+SBATCH -n 6                      # Number of tasks
+SBATCH -t 48:00:00
+SBATCH -A DMS20012
 #
 
 cd /home1/06399/armand/Unsupervised-Classification
@@ -30,11 +30,12 @@ module load cudnn/7.6.2
 source activate selfcondgan
 
 
-export LAUNCHER_JOB_FILE=/home1/06399/armand/Unsupervised-Classification/
+#export LAUNCHER_JOB_FILE=/work/06527/zhendong/frontera/dopamine/run_cmd/test.txt
 export LAUNCHER_SCHED=interleaved
-export LAUNCHER_WORKDIR=/home1/06399/armand/Unsupervised-Classification/
+export LAUNCHER_WORKDIR=home1/06399/armand/Unsupervised-Classification
 
-$LAUNCHER_DIR/paramrun
+#$LAUNCHER_DIR/paramrun
+python simclr.py --config_env configs/env_200.yml --config_exp configs/pretext/simclr_cifar10_200class.yml
 
 echo " "
 echo " Parameteric Job Complete"
