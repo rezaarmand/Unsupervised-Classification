@@ -141,6 +141,7 @@ class CIFAR10(Dataset):
         return True
 
     def download(self):
+        print('_'*20, self.root)
         if self._check_integrity():
             print('Files already downloaded and verified')
             return
