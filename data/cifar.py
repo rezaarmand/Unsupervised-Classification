@@ -72,7 +72,10 @@ class CIFAR10(Dataset):
 
         # now load the picked numpy arrays
         for file_name, checksum in downloaded_list:
+            print(self.root)
+
             file_path = os.path.join(self.root, self.base_folder, file_name)
+            print(file_path)
             with open(file_path, 'rb') as f:
                 if sys.version_info[0] == 2:
                     entry = pickle.load(f)
