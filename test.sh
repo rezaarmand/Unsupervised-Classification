@@ -27,10 +27,10 @@ module load launcher_gpu
 module load cuda/10.0
 module load cudnn/7.6.2
 
-source activate drl
+source activate selfcondgan
 
 
-export LAUNCHER_JOB_FILE=/home1/06399/armand/Unsupervised-Classification/run_cmd/test.txt
+export LAUNCHER_JOB_FILE=/home1/06399/armand/Unsupervised-Classification/
 export LAUNCHER_SCHED=interleaved
 export LAUNCHER_WORKDIR=/home1/06399/armand/Unsupervised-Classification/
 
